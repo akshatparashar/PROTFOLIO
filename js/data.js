@@ -14,7 +14,7 @@ window.DATA = {
     level: 26,                          // number shown on the player card badge
     email: "akshatparashar4704@gmail.com",
     phone: "+91-7240716881",
-    resume: "https://drive.google.com/file/d/14-v1llor0RooEc8d7a9ZslnFsS6qhDab/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1BkL_vgbHshUp0XGoYss1QzYNgMiGI6hy/view?usp=sharing",
     summary:
       "Computer Science B.Tech graduate and full-stack / AI developer with hands-on experience building web applications, AI-integrated tools and SaaS products. Skilled in React.js, Node.js, Python and the Gemini API, with a strong focus on shipping real-world projects end-to-end.",
     hype:
