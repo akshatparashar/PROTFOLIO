@@ -145,6 +145,7 @@
     const el = $(`#s-${name}`);
     setTimeout(() => {
       el.classList.add("active");
+      el.querySelectorAll(".h-sec, .pm-title, h2:not([id])").forEach(decode);
       el.scrollTop = 0;
       if (isTouch) window.scrollTo(0, 0);
     }, prev ? 180 : 0);
@@ -159,6 +160,23 @@
     if (name === "agents") selectAgent(currentAgent, true);
     else FX.theme(cfg.fx);
     if (name === "career") renderHistory();
+  }
+
+  // Valorant-style text decode: glyphs scramble then lock in left to right
+  const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/<>";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function decode(h) {
+    if (reduceMotion || h.children.length) return;
+    const text = h.dataset.txt || (h.dataset.txt = h.textContent);
+    const t0 = performance.now(), dur = 520;
+    cancelAnimationFrame(h._dec); clearTimeout(h._decT);
+    // rAF pauses in hidden tabs — never leave a heading scrambled
+    h._decT = setTimeout(() => { cancelAnimationFrame(h._dec); h.textContent = text; }, dur + 80);
+    (function step(now) {
+      const k = Math.min(1, Math.max(0, (now - t0) / dur)), n = Math.floor(k * text.length);
+      h.textContent = text.slice(0, n) + [...text.slice(n)].map(ch => ch === " " || ch === "." ? ch : GLYPHS[Math.random() * GLYPHS.length | 0]).join("");
+      if (k < 1) h._dec = requestAnimationFrame(step); else h.textContent = text;
+    })(t0);
   }
 
   function renderSubtabs(sub) {
@@ -595,6 +613,7 @@
         </div>
         <div class="insp-nav"><button data-nav="-1">← PREV</button><button data-nav="1">NEXT →</button><span style="margin-left:auto;font-size:.8rem;color:#8fa0b0;align-self:center">${pad(idx + 1)} / ${pad(PROJECT_IDS.length)}</span></div>
       </div>`;
+    decode($("#inspInner h2"));
     openLayer($("#inspect"));
   }
   $("#inspect").addEventListener("click", (e) => {
@@ -736,7 +755,21 @@
   }
   function setFx(v) { settings.fx = v; store.set("fx", v); FX.enabled = v; $("#setFx").classList.toggle("on", v); }
   function setXhair(v) { settings.xhair = v; store.set("xhair", v); document.body.classList.toggle("xh-on", v && !isTouch); $("#setXhair").classList.toggle("on", v); }
-  function setXhColor(c) { settings.xhColor = c; store.set("xhColor", c); document.documentElement.style.setProperty("--xh", c); $$("#swatches button").forEach(b => b.classList.toggle("on", b.dataset.c === c)); }
+  // Native SVG cursor: the OS draws it, so it tracks the mouse with zero lag
+  // (the old DOM crosshair trailed a frame behind and stuttered under load).
+  const xhCursor = (c, gap, dot) => {
+    const o = 16, arm = 6;
+    const r = [[o - 1, o - gap - arm, 2, arm], [o - 1, o + gap, 2, arm], [o - gap - arm, o - 1, arm, 2], [o + gap, o - 1, arm, 2], [o - dot / 2, o - dot / 2, dot, dot]];
+    const rects = (fill, p) => r.map(([x, y, w, h]) => `<rect x='${x - p}' y='${y - p}' width='${w + p * 2}' height='${h + p * 2}' fill='${fill}'/>`).join("");
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'>${rects("rgba(0,0,0,.65)", 1)}${rects(c, 0)}</svg>`;
+    return `url("data:image/svg+xml,${encodeURIComponent(svg)}") 16 16, crosshair`;
+  };
+  function setXhColor(c) {
+    settings.xhColor = c; store.set("xhColor", c);
+    const root = document.documentElement.style;
+    root.setProperty("--xh", c);
+    root.setProperty("--cur", xhCursor(c, 4, 2));
+    root.setProperty("--cur-h", xhCursor(c, 7, 4)); $$("#swatches button").forEach(b => b.classList.toggle("on", b.dataset.c === c)); }
   $("#setSound").addEventListener("click", () => setSound(!settings.sound));
   $("#setFx").addEventListener("click", () => { setFx(!settings.fx); sfx("toggle"); });
   $("#setXhair").addEventListener("click", () => { setXhair(!settings.xhair); sfx("toggle"); });
@@ -832,24 +865,30 @@
   /* =====================================================================
      CROSSHAIR · TOOLTIP · HOVER SOUND
      ===================================================================== */
-  const xh = $("#xhair");
   const INTERACTIVE = "button, a, input, textarea, [data-tip], label";
-  let mx = -100, my = -100, xhRaf = 0;
-  const placeXh = () => { xh.style.transform = `translate(${mx}px, ${my}px)`; xhRaf = 0; };
+  const kb = $("#killBanner");
+  let kills = 0, lastKill = 0;
+  function killStreak() {
+    const now = performance.now();
+    kills = now - lastKill < 1500 ? Math.min(5, kills + 1) : 1;
+    lastKill = now;
+    if (kills < 2) return;
+    const ace = kills === 5;
+    kb.innerHTML = `<div class="kb-emb"><span>${kills}</span></div><div class="kb-ticks">${"<i></i>".repeat(kills)}</div><b class="kb-txt">${ace ? "ACE" : kills + " KILLS"}</b>`;
+    kb.classList.remove("on", "ace"); void kb.offsetWidth;
+    kb.classList.add("on"); kb.classList.toggle("ace", ace);
+    if (window.SFX.enabled) window.SFX.play("kill", kills);
+    if (ace) { kills = 0; lastKill = 0; }
+  }
   if (!isTouch) {
-    window.addEventListener("pointermove", (e) => {
-      mx = e.clientX; my = e.clientY;
-      if (!xhRaf) xhRaf = requestAnimationFrame(placeXh);
-    }, { passive: true });
     window.addEventListener("pointerdown", (e) => {
       if (!settings.xhair || e.button !== 0) return;
-      xh.classList.add("fire");
-      setTimeout(() => xh.classList.remove("fire"), 90);
       if (!e.target.closest(INTERACTIVE) && started) {
-        const hm = document.createElement("i"); hm.className = "hitmark";
+        const hm = document.createElement("i"); hm.className = "hitmark"; hm.innerHTML = "<b></b>";
         hm.style.left = e.clientX + "px"; hm.style.top = e.clientY + "px";
         document.body.appendChild(hm); setTimeout(() => hm.remove(), 360);
         sfx("shot");
+        killStreak();
       }
     });
   }
@@ -858,7 +897,6 @@
   let tipEl = null;
   document.addEventListener("pointerover", (e) => {
     const it = e.target.closest(INTERACTIVE);
-    xh.classList.toggle("hover", !!it);
     if (it && it !== tipEl && started && !isTouch && !it.matches("input, textarea")) sfx("hover");
     const t = e.target.closest("[data-tip]");
     if (t !== tipEl) {

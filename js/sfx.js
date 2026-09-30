@@ -77,14 +77,19 @@ window.SFX = (() => {
     },
     boom() { tone(70, 1.2, { type: "sine", gain: 0.45, to: 28 }); noise(0.9, { gain: 0.12, from: 5000, to: 80, type: "lowpass", q: 0.4 }); },
     flip() { noise(0.15, { gain: 0.1, from: 1200, to: 6000 }); tone(900, 0.15, { type: "triangle", gain: 0.07, to: 1400, delay: 0.05 }); },
+    kill(n = 2) {
+      tone(420 + n * 140, 0.16, { type: "triangle", gain: 0.12, to: 640 + n * 180 });
+      tone(1400 + n * 120, 0.1, { type: "sine", gain: 0.05, delay: 0.04 });
+      if (n >= 5) { tone(60, 0.9, { type: "sine", gain: 0.35, to: 35 }); noise(0.5, { gain: 0.1, from: 6000, to: 200, type: "lowpass", q: 0.5 }); }
+    },
     reveal() { [880, 1320].forEach((f, i) => tone(f, 0.35, { type: "sine", gain: 0.08, delay: i * 0.08 })); }
   };
 
   return {
     init,
-    play(name) {
+    play(name, arg) {
       if (!ctx) return; // only after the first user gesture (the start gate)
-      try { if (ctx.state === "suspended") ctx.resume(); sounds[name] && sounds[name](); } catch (e) { /* audio is optional */ }
+      try { if (ctx.state === "suspended") ctx.resume(); sounds[name] && sounds[name](arg); } catch (e) { /* audio is optional */ }
     },
     set enabled(v) { enabled = v; },
     get enabled() { return enabled; }
