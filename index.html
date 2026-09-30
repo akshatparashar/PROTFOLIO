@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Akshat Parashar — AI Engineer</title>
+<meta name="description" content="Akshat Parashar — AI Engineer, full-stack & UI/UX developer from Jaipur. A game-client inspired portfolio.">
+<meta name="theme-color" content="#0f1923">
+<meta property="og:title" content="Akshat Parashar — AI Engineer">
+<meta property="og:description" content="AI Engineer · Full-Stack · UI/UX. Queue up and find a match.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f1923'/%3E%3Cpath fill='%23ff4655' d='M8 92 L42 8 H60 L26 92Z'/%3E%3Cpath fill='%23ff4655' d='M48 92 L58 66 H76 L66 92Z'/%3E%3Cpath fill='%23ece8e1' d='M62 8 H78 Q96 8 96 27 Q96 46 78 46 H62 L68 32 H76 Q81 32 81 27 Q81 22 76 22 H57Z'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="booting">
+
+<!-- ======================= ICON SPRITE ======================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 100 100"><path d="M8 92 L42 8 H60 L26 92Z"/><path d="M48 92 L58 66 H76 L66 92Z"/><path d="M62 8 H78 Q96 8 96 27 Q96 46 78 46 H62 L68 32 H76 Q81 32 81 27 Q81 22 76 22 H57Z"/></symbol>
+    <symbol id="i-prog" viewBox="0 0 24 24"><path d="M12 1.5 22.5 12 12 22.5 1.5 12Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7l5 5-5 5-5-5Z"/></symbol>
+    <symbol id="i-agents" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 1.5c-5 0-8.5 3.6-8.5 8.6v3.6l3 3.2v5.6h11v-5.6l3-3.2v-3.6c0-5-3.5-8.6-8.5-8.6Zm-5 9.4h10l-1.2 3.6H8.2Z"/></symbol>
+    <symbol id="i-career" viewBox="0 0 24 24"><path d="M5 1.5h5l2 4.5 2-4.5h5l-4.3 8.2a6.5 6.5 0 1 1-5.4 0Z"/><circle cx="12" cy="15.5" r="3" fill="#0f1923"/></symbol>
+    <symbol id="i-about" viewBox="0 0 24 24"><path d="M6 2h12v4.5a6 6 0 0 1-12 0ZM2 3h3v4.2A3.2 3.2 0 0 1 2 4Zm20 0h-3v4.2A3.2 3.2 0 0 0 22 4ZM10 13.5h4V17h3.5v5h-11v-5H10Z"/></symbol>
+    <symbol id="i-process" viewBox="0 0 24 24"><path d="M12 1.5 22 9.5v4.4L12 5.9 2 13.9V9.5Z"/><path d="M12 9.3l7.5 6v4.3L12 13.7l-7.5 5.9v-4.3Z"/><path d="M12 17l3.2 2.6L12 22.5l-3.2-2.9Z"/></symbol>
+    <symbol id="i-collection" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 1.5h8V5h2.5A2.5 2.5 0 0 1 21 7.5V21a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 21V7.5A2.5 2.5 0 0 1 5.5 5H8Zm2.2 2V5h3.6V3.5ZM7 11.5h10v4H7Z"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M1.5 2.5h3.6l2.6 11.6h11.1l2.7-8.6H6.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="9" cy="19.3" r="2"/><circle cx="17.3" cy="19.3" r="2"/></symbol>
+    <symbol id="i-night" viewBox="0 0 24 24"><rect x="4.5" y="1.5" width="15" height="21" rx="1.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6.5l4.2 5.5-4.2 5.5L7.8 12Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M2.5 5h19v14h-19Z M2.5 5l9.5 8 9.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g><rect x="10.3" y="0.8" width="3.4" height="5" rx=".6"/><rect x="10.3" y="18.2" width="3.4" height="5" rx=".6"/><rect x="0.8" y="10.3" width="5" height="3.4" rx=".6"/><rect x="18.2" y="10.3" width="5" height="3.4" rx=".6"/><g transform="rotate(45 12 12)"><rect x="10.3" y="0.8" width="3.4" height="5" rx=".6"/><rect x="10.3" y="18.2" width="3.4" height="5" rx=".6"/><rect x="0.8" y="10.3" width="5" height="3.4" rx=".6"/><rect x="18.2" y="10.3" width="5" height="3.4" rx=".6"/></g></g><circle cx="12" cy="12" r="7.4" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="12" cy="12" r="2.4"/></symbol>
+    <symbol id="i-addfriend" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M1.5 21c0-4.5 3.4-7.5 7.5-7.5s7.5 3 7.5 7.5Z"/><path d="M19 7v8M15 11h8" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M2 2l7.5 7.5M22 2l-7.5 7.5M2 22l7.5-7.5M22 22l-7.5-7.5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 10.3 13.7 12 12 13.7 10.3 12Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h16M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M21 12H5M11 5.5 4.5 12 11 18.5" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v13H8Z M4 16V3h12" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M3 9h4l5-4.5v15L7 15H3Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M3 9h4l5-4.5v15L7 15H3Z"/><path d="M16 9l6 6M22 9l-6 6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 10V7a5 5 0 0 1 10 0v3h1.5v12h-13V10Zm2.5 0h5V7a2.5 2.5 0 0 0-5 0Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M3 12.5 9 18.5 21 5.5" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.4"/></symbol>
+    <symbol id="i-range" viewBox="0 0 24 24"><path d="M12 1v7M12 16v7M1 12h7M16 12h7" stroke="currentColor" stroke-width="2"/><path d="M12 5l1.3 5.7L19 12l-5.7 1.3L12 19l-1.3-5.7L5 12l5.7-1.3Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M1.5 4.5h21v12H9l-5 4v-4H1.5Z"/><circle cx="7" cy="10.5" r="1.5" fill="#0f1923"/><circle cx="12" cy="10.5" r="1.5" fill="#0f1923"/><circle cx="17" cy="10.5" r="1.5" fill="#0f1923"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 2v13M6 9.5l6 6 6-6M3 21h18" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3 11 13M18 14v7H3V6h7" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 6 2 12l6 6M16 6l6 6-6 6M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 10h2v8h-2zM11 6h2v2h-2z"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2 20h4v3H2zM8 15h4v8H8zM14 9h4v14h-4zM20 3h4v20h-4z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M3 5h18v17H3Z M3 10h18M8 2v5M16 2v5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 1.5 21 5v6.5c0 5.5-3.8 9.6-9 11-5.2-1.4-9-5.5-9-11V5Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6Z"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M16.5 2.5 21.5 7.5 8 21H3v-5Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 1.5l3.2 6.8 7.3.9-5.4 5.1 1.4 7.2L12 18l-6.5 3.5 1.4-7.2L1.5 9.2l7.3-.9Z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3 1 8.5 12 14l9-4.5V16h2V8.5Z"/><path d="M5.5 12v5c2 2.5 11 2.5 13 0v-5L12 15.5Z"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 2 22 7 12 12 2 7Z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14.5 2.5c4 0 7 3 7 7L13 18l-7-7Z"/><path d="M6 11 2.5 12 6 7.5h5ZM13 18l-1 3.5 4.5-3.5v-5Z"/><path d="M5 16c-2 1-2.5 3.5-2.5 5.5 2 0 4.5-.5 5.5-2.5Z"/></symbol>
+    <symbol id="i-proj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 16.5 12 6l5 10.5h-3.2L12 12.4l-1.8 4.1Z"/></symbol>
+    <symbol id="i-role" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 6.5h5.2a3.3 3.3 0 0 1 .8 6.5l2.8 4.5h-3.3l-2.4-4.2H11v4.2H8Z"/></symbol>
+    <symbol id="i-cgpa" viewBox="0 0 24 24"><path d="M12 1.5 22.5 12 12 22.5 1.5 12Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7 6.5 10 12 13l5.5-3Zm-4 4.6v2.6c1.8 1.6 6.2 1.6 8 0v-2.6L12 14Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4 2.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM2.2 8.5h3.6V21H2.2ZM8.6 8.5h3.4v1.7h.05c.48-.9 1.66-1.85 3.42-1.85 3.66 0 4.33 2.4 4.33 5.53V21h-3.6v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.42 1.64-2.42 3.33V21H8.6Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 2.5 10 6.3 8 9.2a13 13 0 0 0 6.8 6.8l2.9-2 3.8 3.4-1.8 3.6C11 21.5 2.5 13 3 4.3Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 1.5a8 8 0 0 1 8 8c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 8-8Zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M14 1 4 14h7l-2 9 10-13h-7Z"/></symbol>
+    <symbol id="i-game" viewBox="0 0 24 24"><path d="M6 6h12a5 5 0 0 1 4.8 6.3l-1.3 5A2.8 2.8 0 0 1 16.8 18L15 15.5H9L7.2 18a2.8 2.8 0 0 1-4.7-.7l-1.3-5A5 5 0 0 1 6 6Zm1 3v2H5v2h2v2h2v-2h2v-2H9V9Zm9 .5a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Zm2.3 2.5a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2c3 3 4 6.5 4 10s-1 7-4 10c-3-3-4-6.5-4-10s1-7 4-10Z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<!-- ======================= PRELOADER (splash) ======================= -->
+<div id="preloader" class="preloader" aria-live="polite">
+  <div class="pre-frame">
+    <div class="pre-blackletter" aria-hidden="true"><span>Akshat</span><span>Parashar</span></div>
+    <div class="pre-art" aria-hidden="true">
+      <div class="pre-art-rays"></div>
+      <div class="emb"><svg><use href="#i-logo"/></svg></div>
+    </div>
+    <svg class="pre-mark pre-mark-top" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="13" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="4"/><path d="M30 2v18M30 40v18M2 30h18M40 30h18" stroke="currentColor" stroke-width="2"/></svg>
+    <div class="pre-lockup">
+      <div class="pre-logo">
+        <svg class="pre-emblem"><use href="#i-logo"/></svg>
+        <div class="pre-words"><span>AKSHAT</span><span>PARASHAR</span></div>
+      </div>
+      <div class="pre-bar"><i id="preFill"></i></div>
+      <div class="pre-status"><span id="preStatus">INITIALISING CLIENT</span><span id="preCount">0%</span></div>
+      <button class="pre-start" id="preStart" type="button">CLICK TO START</button>
+    </div>
+    <svg class="pre-mark pre-mark-bot" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="13" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="4"/><path d="M30 2v18M30 40v18M2 30h18M40 30h18" stroke="currentColor" stroke-width="2"/></svg>
+    <p class="pre-legal">© 2026 Akshat Parashar. A fan-made portfolio inspired by the VALORANT client UI. Not affiliated with or endorsed by Riot Games. All project names belong to their respective owners.</p>
+  </div>
+</div>
+
+<!-- intro slam after start -->
+<div id="intro" class="intro" aria-hidden="true">
+  <div class="intro-slash s1"></div><div class="intro-slash s2"></div><div class="intro-slash s3"></div>
+  <div class="intro-name"><span>AKSHAT</span><span>PARASHAR</span></div>
+  <div class="intro-sub">AI ENGINEER // FULL-STACK // UI/UX</div>
+</div>
+
+<!-- ======================= CLIENT ======================= -->
+<div id="app" class="app" data-theme="lobby">
+  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <!-- top bar -->
+  <header class="topbar">
+    <a href="#lobby" class="play-btn" data-go="lobby" data-sfx="play">
+      <svg class="play-logo"><use href="#i-logo"/></svg><span>PLAY</span>
+    </a>
+    <nav class="tabs" aria-label="Main">
+      <a href="#progression" class="tab" data-go="progression" data-tip="PROGRESSION" data-key="1"><svg><use href="#i-prog"/></svg><em>Progress</em></a>
+      <a href="#agents" class="tab" data-go="agents" data-tip="AGENTS · SKILLS" data-key="2"><svg><use href="#i-agents"/></svg><em>Skills</em></a>
+      <a href="#career" class="tab" data-go="career" data-tip="CAREER" data-key="3"><svg><use href="#i-career"/></svg><em>Career</em></a>
+      <a href="#about" class="tab" data-go="about" data-tip="ABOUT" data-key="4"><svg><use href="#i-about"/></svg><em>About</em></a>
+      <a href="#process" class="tab" data-go="process" data-tip="PREMIER · PROCESS" data-key="5"><svg><use href="#i-process"/></svg><em>Process</em></a>
+      <a href="#collection" class="tab" data-go="collection" data-tip="COLLECTION · PROJECTS" data-key="6"><svg><use href="#i-collection"/></svg><em>Projects</em></a>
+      <a href="#store" class="tab" data-go="store" data-tip="STORE · HIRE" data-key="7"><svg><use href="#i-store"/></svg><em>Hire</em></a>
+      <a href="#nightmarket" class="tab" data-go="nightmarket" data-tip="NIGHT.MARKET" data-key="8"><svg><use href="#i-night"/></svg><em>Secrets</em></a>
+    </nav>
+    <div class="topbar-right">
+      <button class="icon-btn mail-btn" id="mailBtn" data-tip="INBOX" aria-label="Inbox"><svg><use href="#i-mail"/></svg><b class="badge" id="mailBadge">4</b></button>
+      <div class="wallet" id="wallet"></div>
+      <button class="icon-btn gear-btn" id="gearBtn" data-tip="MENU [ESC]" aria-label="Menu"><svg><use href="#i-gear"/></svg></button>
+    </div>
+  </header>
+
+  <!-- sub bar / breadcrumb -->
+  <div class="subbar">
+    <button class="crumb-back" id="crumbBack" aria-label="Back to lobby"><svg><use href="#i-back"/></svg></button>
+    <span class="crumb" id="crumb">LOBBY</span>
+    <div class="subtabs" id="subtabs"></div>
+  </div>
+
+  <!-- right rail -->
+  <aside class="rail">
+    <button class="rail-btn rail-add" data-contact="invite" data-tip="SEND INVITE"><svg><use href="#i-addfriend"/></svg><i class="dot"></i></button>
+    <button class="rail-avatar" data-go="career" data-tip="AKSHAT · ONLINE"><span class="mono">AP</span><i class="status"></i></button>
+    <div id="railSocials"></div>
+  </aside>
+
+  <!-- ======================= SCREENS ======================= -->
+  <main class="screens">
+
+    <!-- LOBBY -->
+    <section class="screen" id="s-lobby" data-screen="lobby">
+      <div class="lobby-deco" aria-hidden="true"><i class="gs g1"></i><i class="gs g2"></i><i class="gs g3"></i><i class="gs g4"></i><span class="xmark x1"></span><span class="xmark x2"></span></div>
+
+      <div class="lobby-pass rv" style="--d:1">
+        <span class="lbl">STATUS · EVENT PASS</span>
+        <button class="pass-title" data-contact="hire">OPEN TO WORK '26 <svg><use href="#i-arrow"/></svg></button>
+        <div class="pass-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i class="dim"></i></div>
+      </div>
+
+      <div class="lobby-missions rv" style="--d:2">
+        <div class="lm-col"><span>ROLES</span><b>04</b></div>
+        <div class="lm-diamond" data-tip="CLASS OF 2026"><span>26</span></div>
+        <div class="lm-col"><span>PROJECTS</span><b>08</b></div>
+        <i class="lm-lines"></i>
+      </div>
+
+      <div class="lobby-left">
+        <button class="mode-card rv" style="--d:3" data-go="agents">
+          <div class="mode-art"><img src="assets/img/tunesofdunes.webp" alt=""></div>
+          <span class="mode-name"><svg><use href="#i-bolt"/></svg>AI ENGINEER</span>
+        </button>
+        <button class="lobby-opt rv" style="--d:4" data-go="collection"><span>ENTER RANGE</span><em>projects</em><svg><use href="#i-range"/></svg></button>
+        <button class="lobby-opt rv" style="--d:5" id="partyCode"><span>PARTY CODE</span><em>copy email</em><svg><use href="#i-chat"/></svg></button>
+        <button class="lobby-opt rv" style="--d:6" id="partyToggle"><span>PARTY OPEN</span><em>open to work</em><i class="toggle on"><b></b></i></button>
+        <a class="lobby-opt resume rv" style="--d:7" data-resume target="_blank" rel="noopener"><span>DOWNLOAD RESUME</span><em>pdf</em><svg><use href="#i-download"/></svg></a>
+      </div>
+
+      <div class="party">
+        <button class="slot s-far rv" style="--d:5" data-contact="invite"><i class="plus"><svg><use href="#i-plus"/></svg></i><em>INVITE</em></button>
+        <button class="slot s-near rv" style="--d:4" data-contact="invite"><i class="plus"><svg><use href="#i-plus"/></svg></i><em>INVITE</em></button>
+        <div class="slot s-me rv" style="--d:2" id="playerCard">
+          <div class="pc-art">
+            <div class="pc-bg"></div>
+            <div class="emb"><svg><use href="#i-logo"/></svg></div>
+          </div>
+          <div class="pc-level"><span id="pcLevel">26</span></div>
+          <svg class="pc-signal"><use href="#i-signal"/></svg>
+          <div class="pc-ready">READY</div>
+          <div class="pc-name">Akshat Parashar</div>
+          <div class="pc-title">AI Engineer</div>
+          <button class="pc-mute" id="pcMute" aria-label="Toggle sound"><svg><use href="#i-sound"/></svg></button>
+          <i class="pc-chev l"></i><i class="pc-chev r"></i>
+        </div>
+        <button class="slot s-near rv" style="--d:4" data-contact="invite"><i class="plus"><svg><use href="#i-plus"/></svg></i><em>INVITE</em></button>
+        <button class="slot s-far rv" style="--d:5" data-contact="invite"><i class="plus"><svg><use href="#i-plus"/></svg></i><em>INVITE</em></button>
+      </div>
+
+      <div class="lobby-right">
+        <button class="feat rv" style="--d:3" data-inspect="resume">
+          <img src="assets/img/resume-bolt.webp" alt="">
+          <span class="feat-t">FEATURED</span><span class="feat-s">AI Resume Analyzer</span>
+        </button>
+        <button class="feat feat-gold rv" style="--d:4" data-go="agents">
+          <div class="feat-glyphs" aria-hidden="true"><b>JS</b><b>PY</b><b>AI</b><b>UX</b></div>
+          <span class="feat-t">AGENTS</span><span class="feat-s">32 SKILLS UNLOCKED</span>
+        </button>
+        <button class="feat feat-patch rv" style="--d:5" id="patchBtn">
+          <div class="patch-art"><svg><use href="#i-logo"/></svg></div>
+          <span class="feat-t">PATCH NOTES</span><span class="feat-s">26.09</span>
+        </button>
+      </div>
+
+      <div class="find-wrap rv" style="--d:6">
+        <div class="queue-info" id="queueInfo"><span>FINDING RECRUITER…</span><b id="queueTime">0:00</b></div>
+        <button class="find-btn" id="findBtn" data-sfx="none"><span>FIND MATCH</span></button>
+        <small class="find-hint">queue up to hire me</small>
+      </div>
+    </section>
+
+    <!-- PROGRESSION -->
+    <section class="screen" id="s-progression" data-screen="progression">
+      <div class="prog-grid">
+        <div class="prog-missions">
+          <h2 class="h-sec rv" style="--d:1">MISSIONS</h2>
+          <div class="panel missions-panel rv" style="--d:2">
+            <div class="panel-head"><b>DAILY LOOP</b><span>Refills in <em id="dailyTimer">--:--:--</em></span></div>
+            <p class="mini">+ Coffee | + Commits per checkpoint</p>
+            <div class="daily-diamonds" id="dailyDiamonds"></div>
+            <div class="panel-head plain"><b>CURRENT GRIND</b><span>Refills never</span></div>
+            <div class="grind" id="grindList"></div>
+          </div>
+        </div>
+        <div class="prog-pass">
+          <h2 class="h-sec rv" style="--d:1">CAREER PASS</h2>
+          <div class="panel pass-panel rv" style="--d:2">
+            <div class="pass-head">
+              <span>SEASON 2026 // ACT V</span>
+              <b id="passSince">CURRENT: <em>AI ENGINEER @ FLO</em></b>
+            </div>
+            <div class="pass-reward" id="passReward"></div>
+            <div class="pass-track" id="passTrack"></div>
+            <button class="btn-bone pass-upgrade" data-contact="hire"><span class="cur"><svg><use href="#i-bolt"/></svg>∞</span><b>UPGRADE YOUR TEAM</b></button>
+          </div>
+          <h2 class="h-sec rv" style="--d:3">OBJECTIVES</h2>
+          <div class="objectives rv" style="--d:4" id="objectives"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS -->
+    <section class="screen" id="s-agents" data-screen="agents">
+      <div class="ag-bgtext" id="agBgText" aria-hidden="true"></div>
+      <div class="ag-left rv" style="--d:1">
+        <div class="ag-toggle"><span>SHOW ALL ROLES</span><i class="toggle on"><b></b></i></div>
+        <div class="ag-filters" id="agFilters"></div>
+        <div class="ag-grid" id="agGrid"></div>
+      </div>
+      <div class="ag-stage" id="agStage">
+        <div class="ag-disc"></div>
+        <div class="ag-figure" id="agFigure"></div>
+      </div>
+      <div class="ag-info rv" style="--d:2">
+        <div class="ag-title">
+          <div class="ag-lvl"><span id="agLvl">5</span></div>
+          <h2 id="agName">AKSHAT</h2>
+        </div>
+        <div class="ag-tabs" id="agTabs"></div>
+        <div class="ag-body" id="agBody"></div>
+        <button class="btn-dark" id="agMastery">VIEW MASTERY</button>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="screen" id="s-career" data-screen="career">
+      <div class="car-id rv" style="--d:1">
+        <span class="car-mono"><svg><use href="#i-logo"/></svg></span>
+        <div><b>Akshat Parashar <button class="copy-btn" id="copyId" data-tip="COPY EMAIL"><svg><use href="#i-copy"/></svg></button></b><span>AI Engineer · Jaipur</span></div>
+      </div>
+      <div class="car-grid">
+        <div class="car-col rv" style="--d:2">
+          <h3 class="h-col">AGENT MASTERY</h3>
+          <div class="mains" id="mains"></div>
+        </div>
+        <div class="car-col car-hist rv" style="--d:3">
+          <h3 class="h-col">MATCH HISTORY</h3>
+          <div class="hist-bar">
+            <div class="dropdown" id="histFilter">
+              <button class="dd-btn"><span>ALL MODES</span><svg viewBox="0 0 10 6"><path d="M0 0h10L5 6Z" fill="currentColor"/></svg></button>
+              <div class="dd-menu"><button data-f="all">ALL MODES</button><button data-f="work">WORK</button><button data-f="edu">EDUCATION</button></div>
+            </div>
+            <span class="hist-note">CLICK A MATCH FOR DETAILS</span>
+          </div>
+          <div class="hist-list" id="histList"></div>
+        </div>
+        <div class="car-col rv" style="--d:4">
+          <h3 class="h-col">COMPETITIVE HUB <svg class="i-sm"><use href="#i-info"/></svg></h3>
+          <div class="rank-card">
+            <div class="rank-glow"></div>
+            <svg class="rank-gem" viewBox="0 0 120 130" aria-hidden="true">
+              <defs><linearGradient id="gemA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe29a"/><stop offset=".5" stop-color="#f0b43c"/><stop offset="1" stop-color="#a86a12"/></linearGradient>
+              <linearGradient id="gemB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f98"/><stop offset="1" stop-color="#3a3e46"/></linearGradient></defs>
+              <path d="M60 4 112 30v62L60 126 8 92V30Z" fill="url(#gemB)"/>
+              <path d="M60 22 94 40v36L60 104 26 76V40Z" fill="url(#gemA)"/>
+              <path d="M60 22 94 40 60 58 26 40Z" fill="#fff2c4" opacity=".55"/>
+              <path d="M60 58v46L26 76V40Z" fill="#000" opacity=".12"/>
+            </svg>
+            <div class="rank-name">CGPA 8.6</div>
+            <div class="rank-bar"><i style="--p:86%"></i></div>
+            <div class="rank-rr">8.6 / 10 · B.TECH CSE</div>
+            <div class="rank-sub">Class XII · 93.4%</div>
+            <a class="rank-cta" data-resume target="_blank" rel="noopener">VIEW RESUME</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (esports) -->
+    <section class="screen" id="s-about" data-screen="about">
+      <div class="ab-left">
+        <div class="ab-lockup rv" style="--d:1">
+          <svg class="ab-emblem"><use href="#i-logo"/></svg>
+          <div>
+            <h1>AKSHAT<br>PARASHAR</h1>
+            <span class="ab-city">JAIPUR · AI ENGINEER</span>
+          </div>
+        </div>
+        <p class="ab-hype rv" style="--d:2" id="abHype"></p>
+        <p class="ab-sum rv" style="--d:3" id="abSum"></p>
+        <div class="ab-ctas rv" style="--d:4">
+          <a class="btn-bone" data-resume target="_blank" rel="noopener"><b>EVENT DETAILS · RESUME</b></a>
+          <button class="btn-ghost" data-contact="hire">CHALLENGE ME</button>
+        </div>
+      </div>
+      <div class="ab-next rv" style="--d:3">
+        <h4>NEXT UP</h4>
+        <div id="nextUp"></div>
+      </div>
+      <div class="ab-teams rv" style="--d:5">
+        <div class="ab-teams-sep"><i></i><i></i><i></i></div>
+        <h4>PARTNERED TEAMS</h4>
+        <div class="teams" id="teams"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS (premier) -->
+    <section class="screen" id="s-process" data-screen="process">
+      <div class="pm-view active" data-view="hub">
+        <div class="pm-left panel-sepia rv" style="--d:2">
+          <svg class="pm-cal"><use href="#i-calendar"/></svg>
+          <p>Check which schedule works best for you and your team.</p>
+          <button class="btn-line" data-contact="schedule">BOOK A CALL</button>
+        </div>
+        <div class="pm-center">
+          <svg class="pm-emblem rv" style="--d:1"><use href="#i-process"/></svg>
+          <h2 class="pm-title rv" style="--d:1">PREMIER</h2>
+          <span class="pm-stage rv" style="--d:2">STAGE: HOW I WORK</span>
+          <ol class="pm-steps">
+            <li class="rv" style="--d:3"><i></i><small>STEP 1</small><b>DISCOVER &amp; DESIGN</b><p>Understand the goal and the user, then wireframe it in Figma.</p></li>
+            <li class="rv" style="--d:4"><i></i><small>STEP 2</small><b>BUILD WITH AI</b><p>Full-stack build with LLMs wired in where they actually help.</p></li>
+            <li class="rv" style="--d:5"><i></i><small>STEP 3</small><b>SHIP &amp; SCALE</b><p>CI/CD, deploy, measure — and keep refining.</p></li>
+          </ol>
+        </div>
+        <div class="pm-right panel-sepia rv" style="--d:3">
+          <div class="pm-brand"><svg><use href="#i-process"/></svg><span>PREMIER</span></div>
+          <h5>ELIGIBILITY</h5>
+          <p>You need a builder who designs, codes and ships AI to participate in the PREMIER experience.</p>
+          <ul class="pm-checks" id="pmChecks">
+            <li>Designs the UI</li><li>Builds full-stack</li><li>Integrates LLMs</li><li>Deploys with CI/CD</li>
+          </ul>
+          <button class="btn-bone pm-verify" id="pmVerify"><b>VERIFY</b></button>
+        </div>
+      </div>
+      <div class="pm-view" data-view="awards"><div class="awards" id="awards"></div></div>
+      <div class="pm-view" data-view="crest">
+        <div class="crest">
+          <div class="crest-emblem"><svg><use href="#i-logo"/></svg></div>
+          <div class="crest-info">
+            <h3>PLAYER CREST</h3>
+            <dl id="crestInfo"></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTION -->
+    <section class="screen" id="s-collection" data-screen="collection">
+      <div class="col-grid" id="colGrid"></div>
+      <div class="col-side">
+        <h3 class="h-weap rv" style="--d:2">PLAYER CARD</h3>
+        <div class="big-card rv" style="--d:3">
+          <div class="pc-bg"></div>
+          <div class="emb"><svg><use href="#i-logo"/></svg></div>
+          <div class="pc-level"><span>26</span></div>
+          <div class="bc-name">Akshat Parashar<small>AI Engineer</small></div>
+          <i class="pc-chev l"></i><i class="pc-chev r"></i>
+        </div>
+        <h3 class="h-weap rv" style="--d:4">EXPRESSIONS</h3>
+        <div class="wheel rv" style="--d:5" id="wheel">
+          <i class="w-line a"></i><i class="w-line b"></i>
+          <button class="w-slot t" data-say="Shipping AI products"><svg><use href="#i-bolt"/></svg></button>
+          <button class="w-slot r" data-say="GG — plays VALORANT"><svg><use href="#i-game"/></svg></button>
+          <button class="w-slot b" data-say="Designs in Figma"><svg><use href="#i-pen"/></svg></button>
+          <button class="w-slot l" data-say="Jaipur, Rajasthan"><svg><use href="#i-pin"/></svg></button>
+          <div class="w-center" id="wheelSay">HOVER</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE -->
+    <section class="screen" id="s-store" data-screen="store">
+      <div class="st-featured rv" style="--d:1">
+        <div class="st-frame"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i></div>
+        <div class="st-slides" id="stSlides">
+          <div class="st-slide active">
+            <div class="st-copy">
+              <span class="st-lbl">FEATURED <em>|</em> <b id="stTimer">00:00:00</b></span>
+              <h2>AKSHAT 2026</h2>
+              <div class="st-price">COLLECTION <span><svg><use href="#i-bolt"/></svg>FULL-TIME</span></div>
+              <span class="chip-gold">LIMITED EDITION · OPEN TO WORK</span>
+              <p>Celebrate 2026 and support your favourite team with this limited edition engineer. Includes AI integration, full-stack builds, UI/UX design and deploys. A portion of every commit goes straight to your roadmap.</p>
+            </div>
+            <div class="st-art"><div class="st-halo"></div><div class="emb"><svg><use href="#i-logo"/></svg></div></div>
+          </div>
+          <div class="st-slide">
+            <div class="st-copy">
+              <span class="st-lbl">FEATURED <em>|</em> <b>FREELANCE</b></span>
+              <h2>PROJECT PACK</h2>
+              <div class="st-price">BUNDLE <span><svg><use href="#i-bolt"/></svg>LET'S TALK</span></div>
+              <span class="chip-gold">CLIENT WORK</span>
+              <p>Production websites like Vishvora and Tunes of Dunes — booking flows, inquiry pipelines and polished UI, built and deployed end-to-end.</p>
+            </div>
+            <div class="st-art shots"><img src="assets/img/vishvora.webp" alt=""><img src="assets/img/tunesofdunes.webp" alt=""></div>
+          </div>
+        </div>
+        <div class="st-buy">
+          <button class="btn-bone" data-contact="hire"><b><svg><use href="#i-bolt"/></svg>HIRE AKSHAT</b></button>
+          <button class="btn-sq" data-go="collection" data-tip="PREVIEW"><svg><use href="#i-collection"/></svg></button>
+        </div>
+        <div class="st-dots" id="stDots"><button class="on"><span>AKSHAT 2026</span><i></i></button><button><span>PROJECT PACK</span><i></i></button></div>
+      </div>
+      <div class="st-offers-head rv" style="--d:2"><i></i><span>DAILY OFFERS</span><b id="offerTimer">00:00:00</b><i></i></div>
+      <div class="st-offers" id="offers"></div>
+      <div class="st-links rv" style="--d:5">
+        <button data-go="nightmarket">NIGHT.MARKET</button>
+        <button data-go="progression">CAREER PASS</button>
+        <button data-go="agents">AGENTS</button>
+        <button data-go="about">ABOUT</button>
+        <button data-go="collection">COLLECTION</button>
+      </div>
+    </section>
+
+    <!-- NIGHT MARKET -->
+    <section class="screen" id="s-nightmarket" data-screen="nightmarket">
+      <div class="nm-head rv" style="--d:1">
+        <h2>NIGHT.MARKET</h2>
+        <span>ENDS IN <b>NEVER</b> · CLICK A CARD TO REVEAL</span>
+      </div>
+      <div class="nm-cards" id="nmCards"></div>
+    </section>
+
+  </main>
+
+  <!-- party chat -->
+  <div class="party-chat">
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-bar" id="chatForm" autocomplete="off">
+      <label for="chatInput">Party:</label>
+      <input id="chatInput" maxlength="240" placeholder="say hi — enter sends it to Akshat">
+      <button type="submit" aria-label="Send"><svg><use href="#i-chat"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<!-- ======================= OVERLAYS ======================= -->
+<div class="wipe" id="wipe" aria-hidden="true"><i></i><i></i></div>
+
+<!-- Menu -->
+<div class="modal" id="menuModal" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="modal-box menu-box">
+    <div class="menu-head"><i></i><h3 id="menuTitle">MENU</h3><i></i><button class="x-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button></div>
+    <div class="menu-view active" data-mview="main">
+      <button class="menu-item" data-mgo="settings">SETTINGS</button>
+      <button class="menu-item" data-contact="support">PLAYER SUPPORT</button>
+      <button class="menu-item" data-mgo="about">ABOUT</button>
+      <button class="menu-item exit" id="exitBtn"><svg><use href="#i-back"/></svg>EXIT TO DESKTOP</button>
+    </div>
+    <div class="menu-view" data-mview="settings">
+      <div class="set-row"><span>UI SOUND</span><button class="toggle on" id="setSound"><b></b></button></div>
+      <div class="set-row"><span>BACKGROUND FX</span><button class="toggle on" id="setFx"><b></b></button></div>
+      <div class="set-row"><span>CROSSHAIR CURSOR</span><button class="toggle on" id="setXhair"><b></b></button></div>
+      <div class="set-row col"><span>CROSSHAIR COLOR</span><div class="swatches" id="swatches"></div></div>
+      <button class="menu-item slim" data-mgo="main">BACK</button>
+    </div>
+    <div class="menu-view" data-mview="about">
+      <p class="about-txt">Portfolio client for <b>Akshat Parashar</b>. Hand-built with vanilla HTML, CSS &amp; JavaScript — synthesised Web Audio, canvas FX and zero frameworks.</p>
+      <p class="about-txt dim">Fan-made and inspired by the VALORANT client UI. Not affiliated with or endorsed by Riot Games.</p>
+      <p class="about-txt dim">Shortcuts: <kbd>1</kbd>–<kbd>8</kbd> tabs · <kbd>P</kbd> lobby · <kbd>M</kbd> inbox · <kbd>Esc</kbd> menu</p>
+      <button class="menu-item slim" data-mgo="main">BACK</button>
+    </div>
+    <span class="menu-ver">26.09.30.0000026</span>
+  </div>
+</div>
+
+<!-- Inbox -->
+<div class="inbox" id="inbox" role="dialog" aria-modal="true" aria-label="Inbox">
+  <div class="inbox-bgword" aria-hidden="true">INBOX</div>
+  <button class="x-btn inbox-x" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+  <div class="inbox-list" id="inboxList"></div>
+  <div class="inbox-view" id="inboxView"></div>
+  <p class="inbox-note">Messages never expire. Unlike bugs.</p>
+</div>
+
+<!-- Contact -->
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact">
+  <div class="modal-box contact-box">
+    <button class="x-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <span class="ct-kicker" id="ctKicker">PARTY INVITE</span>
+    <h3 class="ct-title" id="ctTitle">SEND AN INVITE</h3>
+    <form id="contactForm" class="ct-form" autocomplete="on">
+      <label><span>CALLSIGN</span><input name="name" required placeholder="Your name"></label>
+      <label><span>RETURN CHANNEL</span><input name="email" type="email" required placeholder="you@company.com"></label>
+      <label class="full"><span>MESSAGE</span><textarea name="msg" rows="4" required placeholder="Role, project, or just say gg"></textarea></label>
+      <button class="btn-red full" type="submit"><span>SEND INVITE</span></button>
+    </form>
+    <div class="ct-links" id="ctLinks"></div>
+  </div>
+</div>
+
+<!-- Inspect (project) -->
+<div class="inspect" id="inspect" role="dialog" aria-modal="true" aria-label="Project">
+  <button class="x-btn" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+  <div class="insp-inner" id="inspInner"></div>
+</div>
+
+<!-- Match found / agent select -->
+<div class="match" id="match" aria-hidden="true">
+  <div class="match-found">
+    <div class="mf-lines"><i></i><i></i></div>
+    <span class="mf-kicker">COMPETITIVE · HIRING</span>
+    <h2>MATCH FOUND</h2>
+    <span class="mf-map">MAP: <b>JAIPUR</b> // REMOTE OK</span>
+    <div class="mf-ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg><b id="mfCount">3</b></div>
+  </div>
+  <div class="agent-select">
+    <div class="as-top"><span>AGENT SELECT</span><b id="asTimer">30</b><span>CHOOSE YOUR ENGINEER</span></div>
+    <div class="as-hero">
+      <div class="as-big">
+        <div class="emb"><svg><use href="#i-logo"/></svg></div>
+      </div>
+      <div class="as-meta">
+        <small>// FLEX · FULL-STACK</small>
+        <h2>AKSHAT</h2>
+        <p>AI Engineer who designs the interface, builds the stack and wires in the LLMs.</p>
+        <div class="as-abil"><span>C<em>PROMPT</em></span><span>Q<em>BUILD</em></span><span>E<em>DESIGN</em></span><span>X<em>SHIP</em></span></div>
+      </div>
+    </div>
+    <div class="as-roster" id="asRoster"></div>
+    <button class="lock-btn" id="lockBtn">LOCK IN</button>
+    <button class="as-dodge" id="dodgeBtn">dodge (go back)</button>
+  </div>
+  <div class="locked"><span>LOCKED IN</span></div>
+</div>
+
+<!-- GG screen -->
+<div class="gg" id="gg" aria-hidden="true">
+  <h2>GG WP</h2>
+  <p>Thanks for stopping by. The lobby's always open.</p>
+  <button class="btn-red" id="requeue"><span>RE-QUEUE</span></button>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="tip" id="tip" aria-hidden="true"></div>
+<div class="xhair" id="xhair" aria-hidden="true"><i class="t"></i><i class="b"></i><i class="l"></i><i class="r"></i><i class="c"></i></div>
+
+<script src="js/data.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
