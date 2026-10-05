@@ -809,9 +809,9 @@
     ...D.socials.map(s => [s.id, s.label, s.url, s.label]),
     ["download", "Resume", D.player.resume, "Resume (PDF)"]
   ].map(([ic, , href, label]) => `<a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${icon(ic)}<span>${label}</span></a>`).join("");
-  // Messages are delivered to D.player.email via FormSubmit (no backend needed).
-  // The very first submission sends an activation email to that inbox — click "Activate Form" once.
-  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${D.player.email}`;
+  // Messages are delivered through EmailJS using the custom template in
+  // email/contact-template.html (keys live in D.mail).
+  const MAIL_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
   let sending = false;
   $("#contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -819,37 +819,39 @@
     if (sending) return;
     if (f._honey.value) { f.reset(); closeLayer($("#contactModal")); return; }
     const ctx = contactCtx.replace("service:", "").toUpperCase();
-    const subject = `[Portfolio · ${ctx}] ${f.subject.value.trim()}`;
     const btn = f.querySelector("button[type=submit] span");
     const label = btn.textContent;
     sending = true; btn.textContent = "SENDING…";
     try {
-      const res = await fetch(FORM_ENDPOINT, {
+      const res = await fetch(MAIL_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: subject,
-          _replyto: f.email.value,
-          _template: "table",
-          _captcha: "false",
-          name: f.name.value,
-          email: f.email.value,
-          title: f.subject.value,
-          message: f.msg.value,
-          source: ctx,
-          page: location.href
+          service_id: D.mail.serviceId,
+          template_id: D.mail.templateId,
+          user_id: D.mail.publicKey,
+          template_params: {
+            to_email: D.player.email,
+            from_name: f.name.value.trim(),
+            reply_to: f.email.value.trim(),
+            subject: f.subject.value.trim(),
+            message: f.msg.value.trim(),
+            // What the visitor was looking at when they wrote in — the reason for the mail.
+            reason_kicker: $("#ctKicker").textContent,
+            reason_title: $("#ctTitle").textContent,
+            source: ctx,
+            page: location.href,
+            sent_at: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" }) + " IST"
+          }
         })
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) === "false") throw new Error(data.message || res.status);
+      if (!res.ok) throw new Error(await res.text().catch(() => res.status));
       sfx("lock");
       toast("INVITE SENT · AKSHAT WILL GET BACK TO YOU");
       setTimeout(() => { closeLayer($("#contactModal")); f.reset(); }, 900);
     } catch (err) {
-      // Fallback: hand the message to the visitor's mail client so it isn't lost.
-      const body = `${f.msg.value}\n\n— ${f.name.value}\n${f.email.value}`;
-      window.location.href = `mailto:${D.player.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      toast("COULDN'T SEND · OPENING YOUR MAIL CLIENT INSTEAD");
+      console.error("Contact form:", err);
+      toast("COULDN'T SEND · PLEASE TRY AGAIN");
     } finally {
       sending = false; btn.textContent = label;
     }

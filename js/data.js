@@ -25,6 +25,14 @@ window.DATA = {
     interests: "Loves building AI-integrated and UI SaaS products, playing games and learning new AI tools."
   },
 
+  // Contact form delivery (EmailJS — free, no backend). Fill these in from
+  // dashboard.emailjs.com; the email design lives in email/contact-template.html.
+  mail: {
+    serviceId:  "service_9wc6gro",   // Email Services → your Gmail service
+    templateId: "template_71323qt",  // Email Templates → the portfolio template
+    publicKey:  "C89vZiIW82QvMCJrl"    // Account → General → Public Key
+  },
+
   socials: [
     { id: "github",    label: "GitHub",    url: "https://github.com/akshatparashar" },
     { id: "linkedin",  label: "LinkedIn",  url: "https://www.linkedin.com/in/akshat-parashar-13x" },
