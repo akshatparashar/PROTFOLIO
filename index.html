@@ -516,7 +516,9 @@
     <form id="contactForm" class="ct-form" autocomplete="on">
       <label><span>CALLSIGN</span><input name="name" required placeholder="Your name"></label>
       <label><span>RETURN CHANNEL</span><input name="email" type="email" required placeholder="you@company.com"></label>
+      <label class="full"><span>SUBJECT</span><input name="subject" required maxlength="120" placeholder="What's this about?"></label>
       <label class="full"><span>MESSAGE</span><textarea name="msg" rows="4" required placeholder="Role, project, or just say gg"></textarea></label>
+      <input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <button class="btn-red full" type="submit"><span>SEND INVITE</span></button>
     </form>
     <div class="ct-links" id="ctLinks"></div>

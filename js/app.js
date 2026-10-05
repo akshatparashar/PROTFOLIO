@@ -799,6 +799,7 @@
     $("#ctKicker").textContent = k; $("#ctTitle").textContent = t;
     const f = $("#contactForm");
     if (msg) f.msg.value = msg;
+    if (kind && kind.startsWith("service:") && !f.subject.value) f.subject.value = kind.slice(8);
     LAYERS.filter(s => s !== "#contactModal").forEach(s => $(s).classList.remove("open"));
     openLayer($("#contactModal"));
   }
@@ -808,15 +809,50 @@
     ...D.socials.map(s => [s.id, s.label, s.url, s.label]),
     ["download", "Resume", D.player.resume, "Resume (PDF)"]
   ].map(([ic, , href, label]) => `<a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${icon(ic)}<span>${label}</span></a>`).join("");
-  $("#contactForm").addEventListener("submit", (e) => {
+  // Messages are delivered to D.player.email via FormSubmit (no backend needed).
+  // The very first submission sends an activation email to that inbox — click "Activate Form" once.
+  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${D.player.email}`;
+  let sending = false;
+  $("#contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const f = e.currentTarget;
-    const subject = `[Portfolio · ${contactCtx.replace("service:", "").toUpperCase()}] ${f.name.value}`;
-    const body = `${f.msg.value}\n\n— ${f.name.value}\n${f.email.value}`;
-    window.location.href = `mailto:${D.player.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    sfx("lock");
-    toast("INVITE SENT · OPENING YOUR MAIL CLIENT");
-    setTimeout(() => { closeLayer($("#contactModal")); f.reset(); }, 900);
+    if (sending) return;
+    if (f._honey.value) { f.reset(); closeLayer($("#contactModal")); return; }
+    const ctx = contactCtx.replace("service:", "").toUpperCase();
+    const subject = `[Portfolio · ${ctx}] ${f.subject.value.trim()}`;
+    const btn = f.querySelector("button[type=submit] span");
+    const label = btn.textContent;
+    sending = true; btn.textContent = "SENDING…";
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: subject,
+          _replyto: f.email.value,
+          _template: "table",
+          _captcha: "false",
+          name: f.name.value,
+          email: f.email.value,
+          title: f.subject.value,
+          message: f.msg.value,
+          source: ctx,
+          page: location.href
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) === "false") throw new Error(data.message || res.status);
+      sfx("lock");
+      toast("INVITE SENT · AKSHAT WILL GET BACK TO YOU");
+      setTimeout(() => { closeLayer($("#contactModal")); f.reset(); }, 900);
+    } catch (err) {
+      // Fallback: hand the message to the visitor's mail client so it isn't lost.
+      const body = `${f.msg.value}\n\n— ${f.name.value}\n${f.email.value}`;
+      window.location.href = `mailto:${D.player.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      toast("COULDN'T SEND · OPENING YOUR MAIL CLIENT INSTEAD");
+    } finally {
+      sending = false; btn.textContent = label;
+    }
   });
 
   /* =====================================================================
